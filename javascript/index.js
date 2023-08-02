@@ -92,8 +92,8 @@ const lineasPrestamo = [
 const verProductos = () => {
     let mensaje = "Lista de producto: \n";
     lineasPrestamo.forEach(el =>{
-                mensaje = mensaje + `${el.id}-${el.nombre}  $${el.montoMaximo} hasta ${el.periodoMaximo} cuotas TNA ${el.TNA}% \n`
-    })
+                mensaje = mensaje + `${el.id}-${el.nombre}  $${el.montoMaximo} hasta ${el.periodoMaximo} cuotas, TNA ${el.TNA}% \n`
+    });
 
     const opcion = parseInt(prompt(mensaje)); 
 
