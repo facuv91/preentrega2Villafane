@@ -49,10 +49,10 @@ function acuerdo (mon,cap,int,iva,ctaMen,cta){
             }
             break;
     }    
-    console.log("Capital a abonar"+" "+"$"+cap);
-    console.log("Interes a abonar por cuota"+" "+"$"+int);
-    console.log("Iva="+" "+"$"+iva);
-    console.log("Cuota total mensual"+" "+"$"+ctaMen);
+    console.log("Capital a abonar"+" "+"$"+cap.toFixed(2));
+    console.log("Interes a abonar por cuota"+" "+"$"+int.toFixed(2));
+    console.log("Iva="+" "+"$"+iva.toFixed(2));
+    console.log("Cuota total mensual"+" "+"$"+ctaMen.toFixed(2));
     console.log("A pagar en"+" "+cta+" "+"cuotas mensuales, iguales y consecutivas");    
 }
 
@@ -61,7 +61,7 @@ function acuerdo (mon,cap,int,iva,ctaMen,cta){
 
 const OPCION_SALIR = 3;
 
-const productosCargados = [
+const lineasPrestamo = [
     {
             id:1,
             nombre:"Sola Firma",
@@ -91,8 +91,8 @@ const productosCargados = [
 
 const verProductos = () => {
     let mensaje = "Lista de producto: \n";
-    productosCargados.forEach(el =>{
-            mensaje = mensaje + "${el.id}-${el.nombre}  $${el.montoMaximo} hasta ${el.periodoMaximo} cuotas TNA ${el.TNA}% \n" 
+    lineasPrestamo.forEach(el =>{
+                mensaje = mensaje + `${el.id}-${el.nombre}  $${el.montoMaximo} hasta ${el.periodoMaximo} cuotas TNA ${el.TNA}% \n`
     })
 
     const opcion = parseInt(prompt(mensaje)); 
@@ -119,7 +119,7 @@ const calcularIngresos = () => {
                     let sueldo2 = parseInt(prompt("Penultimo sueldo"));
                     let sueldo3 = parseInt(prompt("Antepenultimo sueldo"));
                     let afectacion = (((sueldo1+sueldo2+sueldo3)/3)/100)*35;
-                    console.log("La cuota que usted puede abonar es de"+" "+"$"+afectacion);
+                    console.log("La cuota que usted puede abonar es de"+" "+"$"+afectacion.toFixed(2));
                     break;
                     case "NO":
                     let independiente = prompt("Trabaja de manera independiente? SI O NO");
@@ -130,7 +130,7 @@ const calcularIngresos = () => {
                                     case "SI":{
                                     let liquidacionAnual = parseInt(prompt("Ingrese el monto de su liquidacion anual"));
                                     let afectacion = ((liquidacionAnual/12)/100)*35;
-                                    console.log("La cuota que usted puede abonar es de"+" "+"$"+afectacion);                
+                                    console.log("La cuota que usted puede abonar es de"+" "+"$"+afectacion.toFixed(2));                
                                     }break;
                                     case "NO":{
                                     let monotributista = prompt("Escriba su categoria de Monotributista");
